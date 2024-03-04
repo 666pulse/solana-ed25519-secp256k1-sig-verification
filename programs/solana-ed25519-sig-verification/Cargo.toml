@@ -17,4 +17,5 @@ default = []
 
 [dependencies]
 anchor-lang = "0.29.0"
+libsecp256k1 = "0.7.1"
 solana-program = "1.18.2"

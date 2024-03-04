@@ -10,7 +10,6 @@ use libsecp256k1;
 use solana_program::instruction::Instruction;
 use solana_program::sysvar::instructions::{load_instruction_at_checked, ID as IX_ID};
 
-// use crate::error::ErrorCode;
 pub mod error;
 pub mod utils;
 
@@ -88,7 +87,7 @@ pub mod signatures {
 
         require!(
             recovered_pubkey.0 == args.public_key,
-            SigVeriryError::InvalidPublicKey
+            RecoverErr::InvalidPublicKey
         );
 
         Ok(())
@@ -124,7 +123,7 @@ pub struct Secp256k1RecoverArgs {
 }
 
 #[error_code]
-pub enum SigVeriryError {
+pub enum RecoverErr {
     #[msg("Publick key is invalid!")]
     InvalidPublicKey,
 }
