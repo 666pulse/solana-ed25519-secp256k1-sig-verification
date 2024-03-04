@@ -82,6 +82,7 @@ pub mod signatures {
         }
 
         let recovered_pubkey =
+            // https://docs.rs/solana-program/latest/solana_program/secp256k1_recover/fn.secp256k1_recover.html
             secp256k1_recover(&message_hash.0, args.recovery_id, &args.signature)
                 .map_err(|_| ProgramError::InvalidArgument)?;
 
